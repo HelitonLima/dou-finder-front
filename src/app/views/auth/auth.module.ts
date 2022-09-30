@@ -1,3 +1,5 @@
+import { MaterialModule } from './../../../assets/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,7 +15,9 @@ import { AuthComponent } from './auth/auth.component';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    FlexLayoutModule,
+    MaterialModule
   ]
 })
 export class AuthModule { }

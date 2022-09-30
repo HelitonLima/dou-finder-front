@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="container" fxLayout="row">
+    <div class="red-side" fxLayout="column" fxFlex="33"></div>
+    
+    <div class="content" fxLayout="column" fxFlex="67" fxLayoutGap="30px" fxLayoutAlign="center center">
+        <span class="title">
+            LOGIN
+        </span>
+
+        <div class="inputs" fxLayout="column" fxLayoutGap="15px">
+            <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+                <mat-label>email</mat-label>
+                <input matInput placeholder="digite seu email aqui...">
+              </mat-form-field>
+        </div>
+
+        <div class="buttons" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="center center">
+            <button mat-flat-button class="button login" (click)="login()">ENTRAR</button>
+        </div>
+    </div>
+</div>
