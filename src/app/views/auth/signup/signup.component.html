@@ -1,0 +1,42 @@
+<div class="container" fxLayout="row">
+  <div class="red-side" fxLayout="column" fxFlex="40">
+
+  </div>
+
+  <div class="content" fxLayout="column" fxFlex="60" fxLayoutGap="20px" fxLayoutAlign="center center">
+      <span class="title">
+          Cadastrar-se
+      </span>
+
+      <div class="inputs" fxLayout="column">
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+              <mat-label>nome</mat-label>
+              <input matInput placeholder="digite seu email aqui...">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+              <mat-label>email</mat-label>
+              <input matInput placeholder="digite seu email aqui...">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+              <mat-label>senha</mat-label>
+              <input matInput placeholder="digite sua senha aqui..." type="password">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+              <mat-label>confirmar senha</mat-label>
+              <input matInput placeholder="digite sua senha aqui..." type="password">
+          </mat-form-field>
+      </div>
+      
+      <div class="buttons" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="center center">
+          <button [disabled]="isLoading" mat-flat-button class="button login" (click)="signup()">
+              <mat-spinner [diameter]="20" style="margin: auto; color: #FFF" *ngIf="isLoading"></mat-spinner>
+              <span [hidden]="isLoading">CADASTRAR</span>
+          </button>
+      </div>
+      
+      <a href="/login">Já possui uma conta? Clique aqui para fazer login</a>
+  </div>
+</div>
