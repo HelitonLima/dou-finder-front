@@ -1,7 +1,13 @@
+@use './assets/colors' as color;
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a {
+    color: color.$red;
+}
 
 .title {
     font-size: 24px;
@@ -24,4 +30,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-form-field.mat-focused .mat-form-field-label {
     color: white !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: color.$red;
+}
+
+.mat-form-field,
+.mat-progress-spinner circle, .mat-spinner circle    {
+    color: #FFF;
+    stroke: #FFF;
 }

@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  public isLoading = false;
+
   constructor(
     private router: Router
   ) { }
@@ -16,6 +18,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('logou')
+    this.isLoading = true;
+
+    setTimeout(() => {
+      this.isLoading = false;
+      console.log('logou');
+    }, 3000);
   }
 }
