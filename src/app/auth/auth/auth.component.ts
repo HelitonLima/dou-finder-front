@@ -16,7 +16,7 @@ export class AuthComponent implements OnInit {
   }
 
   goToPage(page: 'login' | 'signup') {
-    this.router.navigateByUrl(page);
+    this.router.navigateByUrl('auth/' + page);
   }
 
 }

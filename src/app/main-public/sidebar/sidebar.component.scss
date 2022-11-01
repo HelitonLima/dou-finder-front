@@ -1,0 +1,24 @@
+@use "../../../assets/_colors.scss" as color;
+
+.container {
+    padding: 30px;
+    background-color: color.$red;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.user-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
+}
+
+.sidebar-button {
+    font-size: 12px;
+}
+
+.sidebar-button mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}

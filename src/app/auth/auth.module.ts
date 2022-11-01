@@ -1,4 +1,4 @@
-import { MaterialModule } from './../../../assets/material.module';
+import { MaterialModule } from './../../assets/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

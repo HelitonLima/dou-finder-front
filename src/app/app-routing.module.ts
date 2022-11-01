@@ -4,12 +4,17 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./views/auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./main-public/main-public.module').then(m => m.MainPublicModule),
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: ''
+    redirectTo: 'auth'
   }
 ];
 

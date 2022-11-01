@@ -41,3 +41,29 @@ a {
     color: #FFF;
     stroke: #FFF;
 }
+
+mat-divider {
+    width: 100%;
+}
+
+mat-divider.white {
+    border-top-color: #FFF;
+}
+
+// ------------------- Buttons ------------------
+
+.mat-flat-button {
+    min-width: 180px !important;
+}
+
+.mat-flat-button.round-button {
+    border-radius: 30px;
+}
+
+.mat-flat-button.square-button {
+    border-radius: 0px;
+}
+
+.mat-flat-button.bg-dark-red {
+    background-color: #A83C3C;
+}
