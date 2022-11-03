@@ -1,9 +1,19 @@
-<mat-drawer-container class="container" autosize>
+<div fxLayout="row" *ngIf="!isMobile" class="container">
+    <div fxFlex="20">
+        <app-sidebar></app-sidebar>
+    </div>
 
-    <mat-drawer #drawer class="sidebar" mode="side" opened="true" style="position: fixed;">
+    <div fxFlex="80">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<mat-drawer-container class="container" autosize *ngIf="isMobile">
+    <mat-drawer #drawer class="sidebar" mode="side" opened="true">
         <app-sidebar></app-sidebar>
     </mat-drawer>
 
     <mat-drawer-content style="margin-left: 0 !important;">
+        <router-outlet></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container> 

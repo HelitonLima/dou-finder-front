@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilService } from '../services/util.service';
 
 @Component({
   selector: 'app-main-public',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPublicComponent implements OnInit {
 
-  constructor() { }
+  get isMobile() {
+    return this.utilService.isMobile;
+  }
+
+  constructor(
+    private utilService: UtilService
+  ) { }
 
   ngOnInit(): void {
   }
