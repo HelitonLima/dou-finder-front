@@ -1,12 +1,24 @@
-@use './assets/colors' as color;
+@import './assets/colors';
 
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+* {
+    outline: none;
+    font-family: Roboto, "Helvetica Neue";
+}
+
 a {
-    color: color.$red;
+    color: $red;
+}
+
+textarea {
+    resize: none;
+    background-color: $lightDark;
+    color: $darkContrast;
+    border: none;
 }
 
 .title {
@@ -33,7 +45,7 @@ a {
 }
 
 .mat-form-field.mat-focused .mat-form-field-ripple {
-    background-color: color.$red;
+    background-color: $red;
 }
 
 .mat-form-field,
@@ -64,6 +76,10 @@ mat-divider.white {
     border-radius: 0px;
 }
 
+.mat-flat-button.bg-red {
+    background-color: $red;
+}
+
 .mat-flat-button.bg-dark-red {
-    background-color: #A83C3C;
+    background-color: $darkRed;
 }

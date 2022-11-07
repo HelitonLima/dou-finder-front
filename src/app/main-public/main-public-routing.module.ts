@@ -5,7 +5,18 @@ import { MainPublicComponent } from './main-public.component';
 const routes: Routes = [
   {
     path: '',
-    component: MainPublicComponent
+    component: MainPublicComponent,
+    children: [
+      {
+        path: 'chat',
+        loadChildren: () => import('../views/chat/chat.module').then(m => m.ChatModule)
+      },
+      {
+        path: '',
+        redirectTo: 'chat',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
 
