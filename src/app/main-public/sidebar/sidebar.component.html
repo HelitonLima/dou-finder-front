@@ -1,6 +1,6 @@
 <div class="container" fxLayout="column">
     <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start center">
-        <mat-icon class="user-icon">account_circle</mat-icon>
+        <img src="assets/images/user-icon.png" alt="imagem-perfil" class="profile-icon">
     
         <span class="title">PIXER</span>
     
@@ -17,7 +17,10 @@
             CHAT <mat-icon>chat</mat-icon>
         </button>
     
-        <button mat-flat-button class="bg-dark-red square-button sidebar-button">
+        <button 
+            routerLink="/duos"
+            mat-flat-button 
+            class="bg-dark-red square-button sidebar-button">
             DUPLAS <mat-icon>people</mat-icon>
         </button>
     

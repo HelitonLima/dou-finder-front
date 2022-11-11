@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
     setTimeout(() => {
       this.isLoading = false;
-      console.log('logou');
+      this.router.navigateByUrl("");
     }, 3000);
   }
 }

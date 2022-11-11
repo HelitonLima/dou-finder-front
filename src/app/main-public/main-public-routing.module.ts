@@ -9,7 +9,17 @@ const routes: Routes = [
     children: [
       {
         path: 'chat',
-        loadChildren: () => import('../views/chat/chat.module').then(m => m.ChatModule)
+        loadChildren: () => import('../views/chat/chat.module').then(m => m.ChatModule),
+        data: {
+          title: 'Chat'
+        }
+      },
+      {
+        path: 'duos',
+        loadChildren: () => import('../views/duo/duo.module').then(m => m.DuoModule),
+        data: {
+          title: 'Duplas'
+        }
       },
       {
         path: '',

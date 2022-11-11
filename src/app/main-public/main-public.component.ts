@@ -1,5 +1,6 @@
 import { UtilService } from './../services/util.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-public',
@@ -11,10 +12,14 @@ export class MainPublicComponent implements OnInit {
   public isMobile = this.utilService.isMobile;
 
   constructor(
-    private utilService: UtilService
+    private utilService: UtilService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
   }
 
+  getScreenTitle() {
+    return this.activatedRoute.children[0].routeConfig?.data?.['title'];
+  }
 }

@@ -2,8 +2,11 @@
     <div class="sidebar-container" fxFlex="20">
         <app-sidebar></app-sidebar>
     </div>
+    <div fxLayout="column" class="content" fxFlex="80" fxLayoutGap="10px">
+        <div class="screen-title" *ngIf="getScreenTitle()">
+            <span> {{ getScreenTitle() }} </span>
+        </div>
 
-    <div class="content" fxFlex="80">
         <router-outlet></router-outlet>
     </div>
 </div>
