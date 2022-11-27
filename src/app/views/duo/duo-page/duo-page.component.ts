@@ -28,7 +28,6 @@ export class DuoPageComponent implements OnInit {
       lastMessage: 'Última menssagem recebida...',
       unreadMessage: 2
     },
-
   ]
 
   constructor() { }
