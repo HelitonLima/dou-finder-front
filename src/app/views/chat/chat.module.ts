@@ -1,3 +1,5 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from 'src/assets/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +13,9 @@ import { ChatPageComponent } from './chat-page/chat-page.component';
   ],
   imports: [
     CommonModule,
-    ChatRoutingModule
+    ChatRoutingModule,
+    FlexLayoutModule,
+    MaterialModule
   ]
 })
 export class ChatModule { }

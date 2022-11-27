@@ -8,5 +8,4 @@ export class UtilService {
   public isMobile = window.innerWidth <= 960;
 
   constructor() { }
-
 }

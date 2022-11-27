@@ -1,3 +1,4 @@
+import { UtilService } from './../services/util.service';
 import { Component, OnInit } from '@angular/core';
 import { UtilService } from '../services/util.service';
 
@@ -8,9 +9,7 @@ import { UtilService } from '../services/util.service';
 })
 export class MainPublicComponent implements OnInit {
 
-  get isMobile() {
-    return this.utilService.isMobile;
-  }
+  public isMobile = this.utilService.isMobile;
 
   constructor(
     private utilService: UtilService

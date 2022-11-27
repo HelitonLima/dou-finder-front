@@ -1,12 +1,14 @@
-<div fxLayout="row" *ngIf="!isMobile" class="container">
-    <div fxFlex="20">
+<div class="container" fxLayout="row">
+    <div class="sidebar-container" fxFlex="20">
         <app-sidebar></app-sidebar>
     </div>
 
-    <div fxFlex="80">
+    <div class="content" fxFlex="80">
         <router-outlet></router-outlet>
     </div>
 </div>
+
+<mat-drawer-container class="container" autosize *ngIf="isMobile">
 
 <mat-drawer-container class="container" autosize *ngIf="isMobile">
     <mat-drawer #drawer class="sidebar" mode="side" opened="true">
