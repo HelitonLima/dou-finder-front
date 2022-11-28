@@ -1,4 +1,3 @@
-import { UtilService } from './../services/util.service';
 import { Component, OnInit } from '@angular/core';
 import { UtilService } from '../services/util.service';
 
