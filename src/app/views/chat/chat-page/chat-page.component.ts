@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatPageComponent implements OnInit {
 
+  public posts: any[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.getPosts();
+  }
+
+  getPosts() {
+    this.posts = [
+      {
+        content: 'teste'
+      }
+    ]
   }
 
 }

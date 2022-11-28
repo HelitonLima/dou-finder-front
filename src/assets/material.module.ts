@@ -74,7 +74,7 @@ const material = [
   ],
   imports: material,
   exports: material,
-  providers: [],
+  providers: [], 
   bootstrap: []
 })
 export class MaterialModule { }

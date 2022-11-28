@@ -7,3 +7,12 @@
 .content {
     background-color: $dark;
 }
+
+.screen-title {
+    margin: 0 20px;
+    padding: 20px 0 ;
+    color: #FFF;
+    font-size: 21px;
+    text-transform: uppercase;
+    border-bottom: $lightDark 3px solid;
+}

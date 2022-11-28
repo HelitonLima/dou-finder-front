@@ -3,21 +3,21 @@ import { MaterialModule } from 'src/assets/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ChatRoutingModule } from './chat-routing.module';
-import { ChatPageComponent } from './chat-page/chat-page.component';
-import { PostComponent } from './post/post.component';
+import { DuoRoutingModule } from './duo-routing.module';
+import { DuoPageComponent } from './duo-page/duo-page.component';
+import { MessageComponent } from './message/message.component';
 
 
 @NgModule({
   declarations: [
-    ChatPageComponent,
-    PostComponent
+    DuoPageComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule,
-    ChatRoutingModule,
+    DuoRoutingModule,
     FlexLayoutModule,
     MaterialModule
   ]
 })
-export class ChatModule { }
+export class DuoModule { }

@@ -83,3 +83,24 @@ mat-divider.white {
 .mat-flat-button.bg-dark-red {
     background-color: $darkRed;
 }
+
+// end buttons 
+
+.profile-icon {
+    width: 80px;
+}
+
+.post {
+    .profile-icon {
+        width: 60px;
+    }
+}
+
+.divider {
+    border-bottom: $lightDark 3px solid;
+}
+
+.icon {
+    border-radius: 50%;
+    width: 60px;
+}

@@ -4,4 +4,10 @@
     <button mat-flat-button class="bg-red round-button sidebar-button" style="align-self: flex-end">
        POSTAR
     </button>
+
+    <div class="divider gray"></div>
+
+    <div class="posts">
+        <app-post *ngFor="let post of posts" [post]="post"></app-post>
+    </div>
 </div>
