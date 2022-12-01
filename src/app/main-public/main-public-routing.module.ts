@@ -22,6 +22,13 @@ const routes: Routes = [
         }
       },
       {
+        path: 'private-chat/:id',
+        loadChildren: () => import('../views/private-chat/private-chat.module').then(m => m.PrivateChatModule),
+        data: {
+          back: 'duos'
+        }
+      },
+      {
         path: '',
         redirectTo: 'chat',
         pathMatch: 'full'

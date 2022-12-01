@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-duo-page',
@@ -30,9 +31,15 @@ export class DuoPageComponent implements OnInit {
     },
   ]
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  showPrivateChat() {
+    this.router.navigateByUrl('/private-chat/1', { state: { hello: 'world' } });
   }
 
 }

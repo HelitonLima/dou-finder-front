@@ -11,7 +11,7 @@ import { MessageComponent } from './message/message.component';
 @NgModule({
   declarations: [
     DuoPageComponent,
-    MessageComponent
+    MessageComponent,
   ],
   imports: [
     CommonModule,

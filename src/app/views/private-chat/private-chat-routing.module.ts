@@ -1,16 +1,16 @@
-import { DuoPageComponent } from './duo-page/duo-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PrivateChatPageComponent } from './private-chat-page/private-chat-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DuoPageComponent
-  },
+    component: PrivateChatPageComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DuoRoutingModule { }
+export class PrivateChatRoutingModule { }

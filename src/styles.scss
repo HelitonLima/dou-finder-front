@@ -8,6 +8,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 * {
     outline: none;
     font-family: Roboto, "Helvetica Neue", Arial, Verdana, Tahoma;
+    box-sizing: border-box;
 }
 
 a {
@@ -103,4 +104,5 @@ mat-divider.white {
 .icon {
     border-radius: 50%;
     width: 60px;
+    height: 60px;
 }

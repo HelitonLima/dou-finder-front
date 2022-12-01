@@ -2,6 +2,6 @@
     <div 
     *ngFor="let message of messages; let i = index"
     [ngClass]="{'content': true, 'divider': i != messages.length -1 }">
-        <app-message [model]="message"></app-message>
+        <app-message [model]="message" (click)="showPrivateChat()"></app-message>
     </div>
 </div>
