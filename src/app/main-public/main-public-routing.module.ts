@@ -29,6 +29,13 @@ const routes: Routes = [
         }
       },
       {
+        path: 'profile',
+        loadChildren: () => import('../views/profile/profile.module').then(m => m.ProfileModule),
+        data: {
+          title: 'Perfil'
+        }
+      },
+      {
         path: '',
         redirectTo: 'chat',
         pathMatch: 'full'

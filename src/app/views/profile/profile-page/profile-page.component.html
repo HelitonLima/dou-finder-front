@@ -1,0 +1,40 @@
+<div class="container" fxLayout="column" fxLayoutGap="20px">
+    <span class="title">ICON</span>
+
+    <div class="icons" fxLayout="row wrap" fxLayoutGap="20px" style="padding-inline-start: 5vw;">
+        <div 
+            (click)="changeIcon(icon)"
+            class="icon-container" 
+            *ngFor="let icon of icons" 
+            [ngStyle]="{'background-image': user.icon == icon ? 'url(' + 'assets/images/moldura.png' + ')' : ''}"
+            >
+            <img class="icon square"[src]="icon" alt="">
+        </div>
+    </div>
+    
+    <div class="divider"></div>
+
+    <span class="title">
+        Informações da Conta
+    </span>
+
+    <div class="account-info" fxLayout="column">
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+            <mat-label>Nickname</mat-label>
+            <input matInput placeholder="digite seu nickname aqui...">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+            <mat-label>Funções</mat-label>
+                <mat-select multiple [(ngModel)]="selectedRoles">
+                    <mat-option *ngFor="let role of playRoles" [value]="role.value">
+                        {{role.value}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+        <div fxLayout="row wrap" fxLayoutGap="20px">
+            <img class="icon square" *ngFor="let role of selectedRoles" [src]="'assets/images/' + role + '.png'" alt="" srcset="">
+        </div>
+    </div>
+</div>

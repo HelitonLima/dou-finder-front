@@ -1,0 +1,28 @@
+.container {
+    padding: 20px;
+}
+
+.icon-container {
+    margin-right: 20px;
+    padding: 7px 15px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    
+    img {
+        transition: all .3s
+    }
+}
+
+.icon-container:hover img {
+    opacity: .75;
+    transform: scale(105%) translateY(1.5px);
+}
+
+.icon-container:active img {
+    transform: scale(104%);
+}
+
+.account-info {
+    padding-inline-start: 5vw;
+}
