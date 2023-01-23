@@ -2,11 +2,19 @@
 
 .container {
     min-height: 100vh;
+    background-color: $dark;
 }
 
 .content {
-    background-color: $dark;
     min-height: 100%;
+    width: 100%;
+}
+
+.screen-content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%
 }
 
 .screen-title {
@@ -16,4 +24,9 @@
     font-size: 21px;
     text-transform: uppercase;
     border-bottom: $lightDark 3px solid;
+}
+
+.sidebar-container{ 
+    width: 20%;
+    max-width: 340px;
 }

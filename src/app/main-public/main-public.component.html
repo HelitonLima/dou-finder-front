@@ -1,8 +1,8 @@
 <div class="container" fxLayout="row">
-    <div class="sidebar-container" fxFlex="20">
+    <div class="sidebar-container">
         <app-sidebar></app-sidebar>
     </div>
-    <div fxLayout="column" class="content" fxFlex="80" fxLayoutGap="10px">
+    <div fxLayout="column" class="content" fxLayoutGap="10px">
         <div class="screen-title" *ngIf="title" fxLayout="row" fxLayoutAlign="space-between center">
             <span> {{ title }} </span>
 
@@ -10,7 +10,10 @@
                 <mat-icon>keyboard_return</mat-icon>
             </div>
         </div>
-        <router-outlet></router-outlet>
+
+        <div class="screen-content">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>
 

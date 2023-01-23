@@ -1,5 +1,8 @@
+@import '../../../../assets/colors';
+
 .container {
     padding: 20px;
+    height: 100%;
 }
 
 .icon-container {
@@ -23,6 +26,55 @@
     transform: scale(104%);
 }
 
-.account-info {
-    padding-inline-start: 5vw;
+.items {
+    padding-inline-start: 32px;
+}
+
+.save {
+    text-align: end;
+    margin-top: 16px;
+}
+
+.role-item {
+    position: relative;
+}
+
+.role-item span {
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.role.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.role-container {
+    cursor: pointer;
+}
+
+.delete-role {
+    background-color: $gray;
+    color: $red;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    opacity: 0;
+    transition: all .3s;
+
+    mat-icon {
+        width: 12px;
+        height: 12px;
+        font-size: 12px;
+    }
+}
+
+.role-item:hover .delete-role {
+    opacity: 1;
 }

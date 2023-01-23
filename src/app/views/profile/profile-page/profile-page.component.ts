@@ -46,4 +46,8 @@ export class ProfilePageComponent implements OnInit {
     this.user.icon = icon;
   }
 
+  removeSelectedRole(role: any) {
+    this.selectedRoles = this.selectedRoles.filter((s: any) => s != role);
+  }
+
 }

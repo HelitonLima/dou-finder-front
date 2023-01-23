@@ -110,3 +110,13 @@ mat-divider.white {
 .icon.square {
     border-radius: unset;
 }
+
+// MAT STYLES
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: $red;
+}
+
+.mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+    background: $red;
+}

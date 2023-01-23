@@ -1,40 +1,60 @@
 <div class="container" fxLayout="column" fxLayoutGap="20px">
     <span class="title">ICON</span>
 
-    <div class="icons" fxLayout="row wrap" fxLayoutGap="20px" style="padding-inline-start: 5vw;">
-        <div 
-            (click)="changeIcon(icon)"
-            class="icon-container" 
-            *ngFor="let icon of icons" 
-            [ngStyle]="{'background-image': user.icon == icon ? 'url(' + 'assets/images/moldura.png' + ')' : ''}"
-            >
-            <img class="icon square"[src]="icon" alt="">
+    <div class="icons items" fxLayout="row wrap" fxLayoutGap="20px">
+        <div (click)="changeIcon(icon)" class="icon-container" *ngFor="let icon of icons"
+            [ngStyle]="{'background-image': user.icon == icon ? 'url(' + 'assets/images/moldura.png' + ')' : ''}">
+            <img class="icon square" [src]="icon">
         </div>
     </div>
-    
+
     <div class="divider"></div>
 
     <span class="title">
         Informações da Conta
     </span>
 
-    <div class="account-info" fxLayout="column">
-        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
-            <mat-label>Nickname</mat-label>
-            <input matInput placeholder="digite seu nickname aqui...">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
-            <mat-label>Funções</mat-label>
-                <mat-select multiple [(ngModel)]="selectedRoles">
-                    <mat-option *ngFor="let role of playRoles" [value]="role.value">
-                        {{role.value}}
-                    </mat-option>
-                </mat-select>
+    <div class="account-info items" fxLayout="column" fxLayoutGap="32px">
+        <div fxLayout="column" fxLayoutGap="8px">
+            <span class="sub-title">Nickname</span>
+            <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+                <!-- <mat-label>Nickname</mat-label> -->
+                <input matInput placeholder="Digite seu nickname aqui...">
             </mat-form-field>
-            
-        <div fxLayout="row wrap" fxLayoutGap="20px">
-            <img class="icon square" *ngFor="let role of selectedRoles" [src]="'assets/images/' + role + '.png'" alt="" srcset="">
         </div>
+
+
+        <div fxLayout="row" fxLayoutGap="64px" fxLayoutAlign="start center">
+            <div fxLayout="column" fxLayoutGap="8px">
+                <span class="sub-title">Funções</span>
+                <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+                    <mat-label>Selecione suas unções</mat-label>
+                    <mat-select multiple [(ngModel)]="selectedRoles">
+                        <mat-option *ngFor="let role of playRoles" [value]="role.value">
+                            {{role.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap" fxLayoutGap="20px" class="role-container">
+                <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px"
+                    *ngFor="let role of selectedRoles" class="role-item" (click)="removeSelectedRole(role)">
+                    <div class="delete-role">
+                        <mat-icon>close</mat-icon>
+                    </div>
+                    <img class="role icon square" [src]="'assets/images/' + role + '.png'" alt="" srcset="">
+                    <span>{{role}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="save">
+        <button mat-flat-button class="bg-dark-red round-button sidebar-button">
+            SALVAR
+        </button>
     </div>
 </div>
