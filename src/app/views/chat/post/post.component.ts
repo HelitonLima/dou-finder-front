@@ -9,9 +9,14 @@ export class PostComponent implements OnInit {
 
   @Input() post: any;
 
+  public showModal = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  closeModal() {
+    this.showModal = false;
+  }
 }

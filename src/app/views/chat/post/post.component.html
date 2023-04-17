@@ -1,5 +1,9 @@
-<div class="container post" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
-    <img src="assets/images/user-icon.png" alt="imagem-perfil" class="profile-icon">
+<div class="container post" fxLayout="row" fxLayoutAlign="start center">
+    <div class="info-user">
+        <img src="assets/images/user-icon.png" alt="imagem-perfil" class="profile-icon" (click)="showModal = true">
+        <app-info-user class="info-user-modal" *ngIf="showModal" (close)="closeModal()"></app-info-user>
+    </div>
 
     <textarea rows="6" disabled> {{post.content}} </textarea>
+
 </div>

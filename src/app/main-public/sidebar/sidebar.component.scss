@@ -28,3 +28,7 @@
 .sidebar-button {
     width: 100%;
 }
+
+.sidebar-button.active {
+    text-decoration: underline;
+}

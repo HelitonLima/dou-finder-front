@@ -1,0 +1,40 @@
+.container {
+    background: #545454;
+    padding: 20px;
+    position: absolute;
+    left: 80px;
+    top: -20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    user-select: none;
+}
+
+.close {
+    position: absolute;
+    color: #FFF;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.name {
+    color: #FFF;
+}
+
+.elo {
+    font-size: 14px;
+    color: #999999;
+}
+
+.title {
+    font-size: 16px;
+    text-align: center;
+    line-height: 24px;
+}
+
+.divider {
+    margin: 16px 0;
+}
+
+button {
+    margin: 8px 0;
+}

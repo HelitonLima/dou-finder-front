@@ -13,6 +13,7 @@
         <button
             routerLink="/chat"
             mat-flat-button 
+            routerLinkActive="active"
             class="bg-dark-red square-button sidebar-button">
             CHAT <mat-icon>chat</mat-icon>
         </button>
@@ -20,6 +21,7 @@
         <button 
             routerLink="/duos"
             mat-flat-button 
+            routerLinkActive="active"
             class="bg-dark-red square-button sidebar-button">
             DUPLAS <mat-icon>people</mat-icon>
         </button>
@@ -35,7 +37,7 @@
 
     <mat-divider class="white" style="margin-top: auto; margin-bottom: 20px;"></mat-divider>
 
-    <button mat-flat-button class="bg-dark-red round-button sidebar-button">
+    <button mat-flat-button class="bg-dark-red round-button sidebar-button" (click)="logout()">
         SAIR
     </button>
 </div>

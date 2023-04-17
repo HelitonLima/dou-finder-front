@@ -48,6 +48,18 @@
                 </div>
             </div>
         </div>
+
+        <div fxLayout="column" fxLayoutGap="8px">
+            <span class="sub-title">Campeões Favoritos:</span>
+            <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+                <mat-label>Selecione seus campeões</mat-label>
+                <mat-select multiple [(ngModel)]="selectedRoles">
+                    <mat-option *ngFor="let role of playRoles" [value]="role.value">
+                        {{role.value}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </div>
 
     <div class="divider"></div>

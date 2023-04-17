@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { PostComponent } from './post/post.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PostComponent } from './post/post.component';
     CommonModule,
     ChatRoutingModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    ComponentsModule
   ]
 })
 export class ChatModule { }

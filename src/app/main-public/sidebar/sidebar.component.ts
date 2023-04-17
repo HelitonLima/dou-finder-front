@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmLogoutComponent } from 'src/app/components/modals/confirm-logout/confirm-logout.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    const dialogRef = this.dialog.open(ConfirmLogoutComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.authService.logout();
+      }
+    });
   }
 
 }
