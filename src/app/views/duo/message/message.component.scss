@@ -24,9 +24,32 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    right: 20px;
+    right: -10px;
+    top: -10px;
 }
 
 .container:hover {
     background-color: rgba(255,255,255,0.1);
+}
+
+.icon-container {
+    position: relative;
+}
+
+.undo-duo {
+    position: absolute;
+    right: 20px;
+    color: $red;
+    border-radius: 50%;
+    transition: all .3s;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.undo-duo:hover {
+    background-color: $red;
+    color: $white;
 }

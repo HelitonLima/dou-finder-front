@@ -1,0 +1,12 @@
+<div class="container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
+  <img [src]="'assets/images/' + model.icon + '.png'" alt="poro-icon" class="icon">
+
+  <div class="texts" fxLayout="column" fxLayoutGap="5px">
+      <span class="name" [innerText]="model.nickname"></span>
+      <span class="message" [innerText]="model.message"></span>
+  </div>
+
+  <!-- <div class="undo-duo" (click)="undoDuo()">
+      <mat-icon>close</mat-icon>
+  </div> -->
+</div>

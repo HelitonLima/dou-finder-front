@@ -1,3 +1,5 @@
+@import "../../../../assets/_colors.scss";
+
 .container {
     padding: 20px;
 }
@@ -5,3 +7,12 @@
 .content {
     margin: 5px 0
 }
+
+.not-found-message {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+    opacity: .6;
+    cursor: pointer;
+    text-decoration: underline;
+} 

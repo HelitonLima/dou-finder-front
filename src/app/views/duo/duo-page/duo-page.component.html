@@ -1,7 +1,11 @@
 <div class="container" >
+    <div *ngIf="messages.length == 0">
+        <p class="not-found-message">Você não possui duplas crias, clique aqui para achar seus parceiros de equipe</p>
+    </div>
+
     <div 
     *ngFor="let message of messages; let i = index"
     [ngClass]="{'content': true, 'divider': i != messages.length -1 }">
-        <app-message [model]="message" (click)="showPrivateChat()"></app-message>
+        <app-message [model]="message" (showPrivateChatEmitter)="showPrivateChat()" (undoDuoEmitter)="undoDuo(message)"></app-message>
     </div>
 </div>

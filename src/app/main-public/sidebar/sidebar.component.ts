@@ -19,7 +19,11 @@ export class SidebarComponent implements OnInit {
   }
 
   logout() {
-    const dialogRef = this.dialog.open(ConfirmLogoutComponent);
+    const dialogRef = this.dialog.open(ConfirmLogoutComponent, {
+      data: {
+        msg: 'Deseja realmente deslogar?',
+      },
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

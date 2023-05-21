@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-confirm-logout',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmLogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmLogoutComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { msg: string },
+  ) { }
 
   ngOnInit() {
   }

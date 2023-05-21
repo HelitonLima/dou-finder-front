@@ -36,6 +36,13 @@ const routes: Routes = [
         }
       },
       {
+        path: 'notifications',
+        loadChildren: () => import('../views/notifications/notifications.module').then(m => m.NotificationsModule),
+        data: {
+          title: 'Notificações'
+        }
+      },
+      {
         path: '',
         redirectTo: 'chat',
         pathMatch: 'full'

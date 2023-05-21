@@ -1,12 +1,17 @@
 <div class="container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
-    <img src="assets/images/2015_Master_Poro.png" alt="poro-icon" class="icon">
+    <div class="icon-container">
+        <div class="messages-alert" fxLayout="column" fxLayoutAlign="center center" *ngIf="model.unreadMessage">
+            <span class="qnt" [innerText]="model.unreadMessage"></span>
+        </div>
+        <img [src]="'assets/images/' + model.icon + '.png'" alt="poro-icon" class="icon">
+    </div>
 
     <div class="texts" fxLayout="column" fxLayoutGap="5px">
         <span class="name" [innerText]="model.nickname"></span>
         <span class="message" [innerText]="model.lastMessage"></span>
     </div>
 
-    <div class="messages-alert" fxLayout="column" fxLayoutAlign="center center" *ngIf="model.unreadMessage">
-        <span class="qnt" [innerText]="model.unreadMessage">+9</span>
+    <div class="undo-duo" (click)="undoDuo()">
+        <mat-icon>close</mat-icon>
     </div>
 </div>
