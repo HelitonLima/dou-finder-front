@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="filters" fxLayout="row wrap" fxLayoutGap="16px" fxLayoutAlign="start center">
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+            <mat-label>NICKNAME</mat-label>
+            <input matInput >
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+            <mat-label>FUNÇÕES</mat-label>
+            <mat-select multiple [(ngModel)]="selectedRoles">
+                <mat-option *ngFor="let role of playRoles" [value]="role.value">
+                    {{role.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+            <mat-label>ELO</mat-label>
+            <mat-select multiple [(ngModel)]="selectedElos">
+                <mat-option *ngFor="let elo of elos" [value]="elo.value">
+                    {{elo.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+            <mat-label>CAMPEÃO FAVORITO</mat-label>
+            <mat-select multiple [(ngModel)]="selectedChamps">
+                <mat-option *ngFor="let champ of champs" [value]="champ.value">
+                    {{champ.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        
+        <button mat-flat-button class="bg-dark-red round-button sidebar-button">
+            PROCURAR 
+            <mat-icon>search</mat-icon>
+        </button>
+    </div>
+</div>

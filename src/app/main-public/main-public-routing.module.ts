@@ -43,6 +43,13 @@ const routes: Routes = [
         }
       },
       {
+        path: 'search',
+        loadChildren: () => import('../views/search/search.module').then(m => m.SearchModule),
+        data: {
+          title: 'Procurar Duplas'
+        }
+      },
+      {
         path: '',
         redirectTo: 'chat',
         pathMatch: 'full'
