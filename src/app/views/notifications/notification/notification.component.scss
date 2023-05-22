@@ -1,0 +1,52 @@
+@import "../../../../assets/_colors.scss";
+
+.container {
+    padding: 20px 0;
+}
+
+.name {
+    color: $orange;
+}
+
+.message {
+    color: #FFF;
+}
+
+.action-buttons {
+    margin-left: auto;
+    margin-right: 32px;
+}
+
+.deny-invite {
+    color: $red;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all .3s;
+    height: 32px;
+    width: 32px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deny-invite:hover {
+    background-color: $red;
+    color: $white;
+}
+
+.accept-invite {
+    color: $green;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all .3s;
+    height: 32px;
+    width: 32px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accept-invite:hover {
+    background-color: $green;
+    color: $white;
+}

@@ -12,7 +12,8 @@ export class NotificationComponent implements OnInit {
     id: '',
     icon: '',
     message: '',
-    nickname: ''
+    nickname: '',
+    type: 'NOTICE'
   };
   
   @Output() handleNotificationEmitter: EventEmitter<null> = new EventEmitter();
@@ -22,4 +23,15 @@ export class NotificationComponent implements OnInit {
   ngOnInit() {
   }
 
+  showActionButton() {
+    return this.model.type == 'INVITE';
+  }
+
+  denyInvite() {
+    
+  }
+
+  acceptInvite() {
+
+  }
 }

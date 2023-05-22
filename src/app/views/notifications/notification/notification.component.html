@@ -1,12 +1,18 @@
 <div class="container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
   <img [src]="'assets/images/' + model.icon + '.png'" alt="poro-icon" class="icon">
 
-  <div class="texts" fxLayout="column" fxLayoutGap="5px">
+  <div class="texts" fxLayout="row" fxLayoutGap="5px">
       <span class="name" [innerText]="model.nickname"></span>
       <span class="message" [innerText]="model.message"></span>
   </div>
 
-  <!-- <div class="undo-duo" (click)="undoDuo()">
-      <mat-icon>close</mat-icon>
-  </div> -->
+  <div class="action-buttons" *ngIf="showActionButton()" fxLayout="row" fxLayoutGap="8px">
+    <div class="accept-invite" (click)="denyInvite()">
+        <mat-icon>check</mat-icon>
+    </div>
+    
+    <div class="deny-invite" (click)="denyInvite()">
+        <mat-icon>close</mat-icon>
+    </div>
+  </div>
 </div>

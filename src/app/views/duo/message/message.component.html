@@ -1,16 +1,18 @@
-<div class="container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
-    <div class="icon-container">
-        <div class="messages-alert" fxLayout="column" fxLayoutAlign="center center" *ngIf="model.unreadMessage">
-            <span class="qnt" [innerText]="model.unreadMessage"></span>
+<div class="message-container">
+    <div class="container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" (click)="showPrivateChat()">
+        <div class="icon-container">
+            <div class="messages-alert" fxLayout="column" fxLayoutAlign="center center" *ngIf="model.unreadMessage">
+                <span class="qnt" [innerText]="model.unreadMessage"></span>
+            </div>
+            <img [src]="'assets/images/' + model.icon + '.png'" alt="poro-icon" class="icon">
         </div>
-        <img [src]="'assets/images/' + model.icon + '.png'" alt="poro-icon" class="icon">
+    
+        <div class="texts" fxLayout="column" fxLayoutGap="5px">
+            <span class="name" [innerText]="model.nickname"></span>
+            <span class="message" [innerText]="model.lastMessage"></span>
+        </div>
     </div>
-
-    <div class="texts" fxLayout="column" fxLayoutGap="5px">
-        <span class="name" [innerText]="model.nickname"></span>
-        <span class="message" [innerText]="model.lastMessage"></span>
-    </div>
-
+    
     <div class="undo-duo" (click)="undoDuo()">
         <mat-icon>close</mat-icon>
     </div>

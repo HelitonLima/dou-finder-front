@@ -4,7 +4,8 @@ export interface INotification {
   id: string,
   icon: string,
   nickname: string,
-  message: string
+  message: string,
+  type: 'INVITE' | 'NOTICE'
 }
 
 @Component({
@@ -19,13 +20,15 @@ export class NotificationsPageComponent implements OnInit {
       icon: '2015_Master_Poro',
       id: '123',
       nickname: 'Pixer',
-      message: 'Aceitou seu convite!!!'
+      message: 'Aceitou seu convite!!!',
+      type: 'NOTICE'
     },
     {
       icon: '2016_Master_Poro',
       id: '1232',
       nickname: 'Juzt',
-      message: 'deseja fazer dupla com você!!!'
+      message: 'deseja fazer dupla com você!!!',
+      type: 'INVITE'
     },
   ]
 
