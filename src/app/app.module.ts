@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BaseModule } from 'src/assets/base.module';
 
 @NgModule({
   declarations: [
@@ -13,10 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FlexLayoutModule,
-    BrowserAnimationsModule
+    BaseModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

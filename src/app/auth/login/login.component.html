@@ -8,15 +8,15 @@
             Login
         </span>
 
-        <div class="inputs" fxLayout="column">
+        <div class="inputs" fxLayout="column" [formGroup]="form">
             <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
                 <mat-label>email</mat-label>
-                <input matInput placeholder="digite seu email aqui...">
+                <input matInput placeholder="digite seu email aqui..." formControlName="email">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
                 <mat-label>senha</mat-label>
-                <input matInput placeholder="digite sua senha aqui..." type="password">
+                <input matInput placeholder="digite sua senha aqui..." type="password" formControlName="password">
             </mat-form-field>
         </div>
         

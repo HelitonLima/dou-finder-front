@@ -8,25 +8,34 @@
           Cadastrar-se
       </span>
 
-      <div class="inputs" fxLayout="column">
+      <div class="inputs" fxLayout="column" [formGroup]="form">
           <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
-              <mat-label>nome</mat-label>
-              <input matInput placeholder="digite seu email aqui...">
+              <mat-label>nickname</mat-label>
+              <input matInput placeholder="digite seu nickname aqui..." formControlName="nickname">
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
               <mat-label>email</mat-label>
-              <input matInput placeholder="digite seu email aqui...">
+              <input matInput placeholder="digite seu email aqui..." formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+              <mat-label>Funções que você joga</mat-label>
+              <mat-select multiple formControlName="roles">
+                  <mat-option *ngFor="let role of roles" [value]="role">
+                      {{role}}
+                  </mat-option>
+              </mat-select>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
               <mat-label>senha</mat-label>
-              <input matInput placeholder="digite sua senha aqui..." type="password">
+              <input matInput placeholder="digite sua senha aqui..." type="password" formControlName="password">
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
               <mat-label>confirmar senha</mat-label>
-              <input matInput placeholder="digite sua senha aqui..." type="password">
+              <input matInput placeholder="confirme sua senha aqui..." type="password" formControlName="confirmPassword">
           </mat-form-field>
       </div>
       

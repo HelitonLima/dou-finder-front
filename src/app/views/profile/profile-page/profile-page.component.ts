@@ -20,19 +20,19 @@ export class ProfilePageComponent implements OnInit {
   ];
   public playRoles = [
     {
-      value: 'Top'
+      value: 'top'
     },
     {
-      value: 'Jungle'
+      value: 'jungle'
     },
     {
-      value: 'Mid'
+      value: 'mid'
     },
     {
-      value: 'ADC'
+      value: 'adc'
     },
     {
-      value: 'Sup'
+      value: 'sup'
     }
   ];
   public selectedRoles: any = [];

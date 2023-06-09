@@ -1,5 +1,9 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AlertService } from 'src/app/services/alert.service';
+import { IUser } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -8,21 +12,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  public form: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
+  });
+
   public isLoading = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit(): void {
   }
 
   login() {
-    this.isLoading = true;
+    if (this.form.valid) {
+      this.isLoading = true;
+  
+      this.authService.login(this.form.getRawValue()).subscribe({
+        next: (res: {user: IUser}) => {
+          this.isLoading = false;
 
-    setTimeout(() => {
-      this.isLoading = false;
-      this.router.navigateByUrl("");
-    }, 3000);
+          this.authService.setUserLocalStorage(res.user);
+
+          this.router.navigateByUrl("");
+
+          this.alertService.success("Você foi logado com sucesso!");
+        }, error: () => {
+          this.isLoading = false;
+        }
+      });
+    } else {
+      this.alertService.warning("Preencha os campos corretamente!");
+    }
+
   }
 }

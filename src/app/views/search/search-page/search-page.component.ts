@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class SearchPageComponent implements OnInit {
 
   public playRoles = [
-    { value: 'Top' },
-    { value: 'Jungle' },
-    { value: 'Mid' },
-    { value: 'ADC' },
-    { value: 'Sup' }
+    { value: 'top' },
+    { value: 'jungle' },
+    { value: 'mid' },
+    { value: 'adc' },
+    { value: 'sup' }
   ];
   public elos = [
     { value: 'Ferro' },
