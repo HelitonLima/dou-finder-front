@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { INotification } from 'src/app/models/notification.model';
+import { IPost } from 'src/app/models/post.model';
 
 @Component({
   selector: 'app-post',
@@ -7,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  @Input() post: any;
+  @Input() post!: IPost;
 
   public showModal = false;
 

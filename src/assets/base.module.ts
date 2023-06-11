@@ -9,6 +9,9 @@ import { AlertService } from 'src/app/services/alert.service';
 import { MaterialModule } from './material.module';
 import { UtilService } from 'src/app/services/util.service';
 import { ErrorInterceptor } from 'src/app/interceptors/error.interceptor';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @Injectable()
 @NgModule({
@@ -22,6 +25,7 @@ import { ErrorInterceptor } from 'src/app/interceptors/error.interceptor';
     ToastrModule.forRoot(),
     // TooltipModule,
     MaterialModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [
     AlertService,

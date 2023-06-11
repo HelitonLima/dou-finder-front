@@ -5,13 +5,23 @@
 }
 
 .name {
-    color: $orange;
+    color: $yellow;
+}
+
+.accepted {
+    color: $lightGreen;
+    cursor: pointer;
+}
+
+.accepted:hover {
+    text-decoration: underline;
 }
 
 .message {
     color: #FFF;
 }
 
+.accepted,
 .action-buttons {
     margin-left: auto;
     margin-right: 32px;

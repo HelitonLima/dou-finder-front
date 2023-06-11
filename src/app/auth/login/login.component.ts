@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       this.isLoading = true;
   
       this.authService.login(this.form.getRawValue()).subscribe({
-        next: (res: {user: IUser}) => {
+        next: (res) => {
           this.isLoading = false;
 
           this.authService.setUserLocalStorage(res.user);

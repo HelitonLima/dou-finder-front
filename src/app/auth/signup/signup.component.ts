@@ -44,10 +44,12 @@ export class SignupComponent implements OnInit {
         return;
       }
 
+      delete value.confirmPassword;
+
       this.isLoading = true;
 
-      this.authService.registe(value).subscribe({
-        next: (res: {user: IUser}) => {
+      this.authService.register(value).subscribe({
+        next: (res) => {
           this.authService.setUserLocalStorage(res.user);
 
           this.router.navigateByUrl("");

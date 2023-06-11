@@ -46,9 +46,6 @@ export class ErrorInterceptor implements HttpInterceptor {
 
             break;
           case 403:
-            this.alertService.error('Usuário não possui acesso ao sistema');
-
-            break;
           case 404:
             this.alertService.error(err.error.message);
 

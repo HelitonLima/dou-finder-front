@@ -1,9 +1,13 @@
 <div class="container post" fxLayout="row" fxLayoutAlign="start center">
-    <div class="info-user">
-        <img src="assets/images/user-icon.png" alt="imagem-perfil" class="profile-icon" (click)="showModal = true">
-        <app-info-user class="info-user-modal" *ngIf="showModal" (close)="closeModal()"></app-info-user>
+    <div class="info-user" fxLayout="column" fxLayoutAlign="center center">
+        <img [src]="post.user.icon" alt="imagem-perfil" class="profile-icon" (click)="showModal = true">
+        
+        <app-info-user class="info-user-modal" [userPost]="post.user" *ngIf="showModal" (close)="closeModal()"></app-info-user>
     </div>
 
-    <textarea rows="6" disabled> {{post.content}} </textarea>
+    <div fxLayout="column" fxLayoutGap="8px" style="width: 100%;">
+        <span>{{post.user.nickname}}</span>
 
+        <textarea rows="2" disabled> {{post.msg}} </textarea>
+    </div>
 </div>

@@ -72,6 +72,7 @@ mat-divider.white {
 
 .mat-flat-button {
     min-width: 180px !important;
+    min-height: 36.3px
 }
 
 .mat-flat-button.small {
@@ -94,8 +95,16 @@ mat-divider.white {
     background-color: $darkRed;
 }
 
+.mat-flat-button.bg-dark {
+    background-color: $lightDark;
+}
+
 .mat-flat-button.bg-green {
     background-color: $green;
+}
+
+.mat-flat-button.bg-yellow {
+    background-color: $yellow;
 }
 
 .mat-flat-button.bg-transparent {
@@ -110,6 +119,7 @@ mat-divider.white {
 
 .profile-icon {
     width: 80px;
+    border-radius: 50%;
 }
 
 .post {
@@ -144,4 +154,23 @@ mat-divider.white {
 
 .mat-dialog-container {
     padding: 0 !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #9c9c9c;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
 }

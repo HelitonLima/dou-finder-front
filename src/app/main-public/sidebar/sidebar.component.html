@@ -1,8 +1,8 @@
 <div class="container" fxLayout="column">
     <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start center">
-        <img src="assets/images/user-icon.png" alt="imagem-perfil" class="profile-icon">
+        <img [src]="user.icon" alt="imagem-perfil" class="profile-icon">
     
-        <span class="title">PIXER</span>
+        <span class="title">{{user.nickname}}</span>
     
         <button routerLink="/profile" mat-flat-button class="bg-dark-red round-button sidebar-button">
             VER PERFIL
@@ -30,8 +30,19 @@
             routerLink="/notifications"
             mat-flat-button 
             routerLinkActive="active"
-            class="bg-dark-red square-button sidebar-button">
+            class="bg-dark-red square-button sidebar-button"
+            [ngClass]="{
+                'square-button': true, 
+                'sidebar-button': true, 
+                'bg-dark-red': notificaitonsLength == 0,
+                'bg-yellow': notificaitonsLength > 0
+            }">
             NOTIFICAÇÕES <mat-icon>notifications</mat-icon>
+
+            
+            <div class="notifications-alert" fxLayout="column" fxLayoutAlign="center center" *ngIf="notificaitonsLength > 0">
+                <span class="qnt" [innerText]="notificaitonsLength"></span>
+            </div>
         </button>
     
         <button 

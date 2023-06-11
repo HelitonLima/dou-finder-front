@@ -2,10 +2,11 @@
     background: #545454;
     padding: 20px;
     position: absolute;
-    left: 80px;
+    left: 90px;
     top: -20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     user-select: none;
+    z-index: 9;
 }
 
 .close {

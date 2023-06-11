@@ -3,7 +3,7 @@
 
     <div class="icons items" fxLayout="row wrap" fxLayoutGap="20px">
         <div (click)="changeIcon(icon)" class="icon-container" *ngFor="let icon of icons"
-            [ngStyle]="{'background-image': user.icon == icon ? 'url(' + 'assets/images/moldura.png' + ')' : ''}">
+            [ngStyle]="{'background-image': userForm.getRawValue().icon == icon ? 'url(' + 'assets/images/moldura.png' + ')' : ''}">
             <img class="icon square" [src]="icon">
         </div>
     </div>
@@ -14,12 +14,30 @@
         Informações da Conta
     </span>
 
-    <div class="account-info items" fxLayout="column" fxLayoutGap="32px">
+    <div class="account-info items" fxLayout="column" fxLayoutGap="32px" [formGroup]="userForm">
+        <div class="tier" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
+            <img 
+                [src]="user.soloqData ? './assets/images/elo/Emblem_' + user.soloqData.tier + '.png' : ''" 
+                alt="" 
+                style="width: 80px;">
+            
+            <div fxLayout="column" fxLayoutGap="10px">
+                <span *ngIf="user.soloqData" class="tier-rank">
+                    {{user.soloqData.tier + ' ' + user.soloqData.rank}}
+                </span>
+
+                <span *ngIf="user.soloqData" class="win-lose">
+                    <span [innerText]="user.soloqData.wins + ' W'" style="color: #85d985;"></span>
+                    /
+                    <span [innerText]="user.soloqData.losses + ' L'" style="color: #c75858;"></span>
+                </span>
+            </div>
+        </div>
+
         <div fxLayout="column" fxLayoutGap="8px">
             <span class="sub-title">Nickname</span>
             <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
-                <!-- <mat-label>Nickname</mat-label> -->
-                <input matInput placeholder="Digite seu nickname aqui...">
+                <input matInput placeholder="Digite seu nickname aqui..." formControlName="nickname">
             </mat-form-field>
         </div>
 
@@ -29,9 +47,9 @@
                 <span class="sub-title">Funções</span>
                 <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
                     <mat-label>Selecione suas funções</mat-label>
-                    <mat-select multiple [(ngModel)]="selectedRoles">
-                        <mat-option *ngFor="let role of playRoles" [value]="role.value">
-                            {{role.value}}
+                    <mat-select multiple formControlName="roles">
+                        <mat-option *ngFor="let role of roles" [value]="role">
+                            {{role}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -39,11 +57,11 @@
 
             <div fxLayout="row wrap" fxLayoutGap="20px" class="role-container">
                 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px"
-                    *ngFor="let role of selectedRoles" class="role-item" (click)="removeSelectedRole(role)">
+                    *ngFor="let role of userForm.getRawValue().roles" class="role-item" (click)="removeSelectedRole(role)">
                     <div class="delete-role">
                         <mat-icon>close</mat-icon>
                     </div>
-                    <img class="role icon square" [src]="'assets/images/' + role + '.png'" alt="" srcset="">
+                    <img class="role icon square" [src]="'assets/images/' + role.toLowerCase() + '.png'" alt="" srcset="">
                     <span>{{role}}</span>
                 </div>
             </div>
@@ -53,7 +71,7 @@
             <span class="sub-title">Campeões Favoritos:</span>
             <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
                 <mat-label>Selecione seus campeões</mat-label>
-                <mat-select multiple [(ngModel)]="selectedRoles">
+                <mat-select multiple formControlName="favoriteChamps">
                     <mat-option *ngFor="let role of playRoles" [value]="role.value">
                         {{role.value}}
                     </mat-option>
@@ -64,9 +82,14 @@
 
     <div class="divider"></div>
 
-    <div class="save">
-        <button mat-flat-button class="bg-dark-red round-button sidebar-button">
-            SALVAR
+    <div class="save" fxLayout="row" fxLayoutGap="24px" fxLayoutAlign="end center">
+        <button mat-flat-button class="bg-dark round-button sidebar-button" (click)="cancel()" [disabled]="isLoading">
+            CANCELAR
+        </button>
+
+        <button mat-flat-button class="bg-dark-red round-button sidebar-button" (click)="save()" [disabled]="isLoading">
+            <mat-spinner [diameter]="20" style="margin: auto; color: #FFF" *ngIf="isLoading"></mat-spinner>
+            <span [hidden]="isLoading">SALVAR</span>
         </button>
     </div>
 </div>

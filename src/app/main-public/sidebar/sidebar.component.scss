@@ -27,8 +27,20 @@
 
 .sidebar-button {
     width: 100%;
+    position: relative;
 }
 
 .sidebar-button.active {
     text-decoration: underline;
+}
+
+.notifications-alert {
+    color: #FFF;
+    background-color: $orange;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
 }

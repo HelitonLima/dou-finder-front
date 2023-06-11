@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../models/user.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { IUser } from '../models/user.model';
 export class AuthService {
 
   public userKey = '$duo-finder:user';
+  public userEmitter$ = new Subject<IUser>();
 
   constructor(
     private router: Router,
@@ -19,13 +21,19 @@ export class AuthService {
   login(model: { email: string; password: string }) {
     const url = `${environment.apiUrl}login`;
     
-    return this.http.post<any>(url, model);
+    return this.http.post<{user: IUser}>(url, model);
   }
 
-  registe(model: IUser) {
+  register(model: IUser) {
     const url = `${environment.apiUrl}user`;
     
-    return this.http.post<any>(url, model);
+    return this.http.post<{user: IUser}>(url, model);
+  }
+
+  update(model: IUser) {
+    const url = `${environment.apiUrl}user`;
+    
+    return this.http.put<{user: IUser}>(url, model);
   }
 
   logout() {
@@ -45,6 +53,14 @@ export class AuthService {
       return JSON.parse(user) as IUser;
 
     return null;
+  }
+
+  emitUser(res: IUser) {
+    this.userEmitter$.next(res);
+  }
+
+  getUser() {
+    return this.userEmitter$.asObservable();
   }
 
 }

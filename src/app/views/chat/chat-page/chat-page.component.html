@@ -1,13 +1,24 @@
 <div class="container" fxLayout="column" fxLayoutGap="25px"> 
-    <textarea placeholder="Digite aqui para criar seu post" name="comment" id="" rows="6"></textarea>
+    <textarea placeholder="Digite aqui para criar seu post" name="comment" id="" rows="6" [(ngModel)]="msg"></textarea>
 
-    <button mat-flat-button class="bg-red round-button sidebar-button" style="align-self: flex-end">
+    <button mat-flat-button class="bg-red round-button sidebar-button" style="align-self: flex-end" (click)="sendMessage()">
        POSTAR
     </button>
 
-    <div class="divider gray"></div>
-
+    
     <div class="posts">
-        <app-post *ngFor="let post of posts" [post]="post"></app-post>
+        <div class="posts-header" fxLayout="column" fxLayoutGap="16px">
+            <span>Posts</span>
+    
+            <div class="divider gray"></div>
+        </div>
+
+        <div fxLayout="column-reverse">
+            <div class="post" *ngFor='let post of posts$ | async; let i = index' fxLayout="column" fxLayoutGap="24px">
+                <app-post [post]="post"></app-post>
+                
+                <div class="divider gray" *ngIf="i != 0"></div>
+            </div>
+        </div>
     </div>
 </div>

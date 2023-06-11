@@ -4,10 +4,10 @@
   </div>
 
   <div class="header" fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
-    <img src="assets/images/user-icon.png" alt="imagem-perfil" class="profile-icon">
+    <img [src]="userPost.icon" alt="imagem-perfil" class="profile-icon">
 
-    <span class="name">Pixer</span>
-    <span class="elo">Plat IV</span>
+    <span class="name">{{userPost.nickname}}</span>
+    <span class="elo"*ngIf="userPost.soloqData">{{userPost.soloqData.tier + ' ' + userPost.soloqData.rank}}</span>
   </div>
 
   <div class="divider"></div>
@@ -17,5 +17,7 @@
     Envie um pedido de dupla!
   </p>
 
-  <button mat-flat-button class="bg-green round-button sidebar-button">CONVIDAR</button>
+  <button [disabled]="userLogged.id == userPost.id" mat-flat-button class="bg-green round-button sidebar-button" (click)="invite()">
+    CONVIDAR
+  </button>
 </div>

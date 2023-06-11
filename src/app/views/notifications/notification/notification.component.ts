@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { INotification } from '../notifications-page/notifications-page.component';
+import { INotification } from 'src/app/models/notification.model';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-notification',
@@ -8,23 +9,23 @@ import { INotification } from '../notifications-page/notifications-page.componen
 })
 export class NotificationComponent implements OnInit {
 
-  @Input() model: INotification = {
-    id: '',
-    icon: '',
-    message: '',
-    nickname: '',
-    type: 'NOTICE'
-  };
+  @Input() model!: INotification;
   
   @Output() handleNotificationEmitter: EventEmitter<null> = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private notificationService: NotificationService
+  ) { }
 
   ngOnInit() {
   }
 
   showActionButton() {
-    return this.model.type == 'INVITE';
+    return this.model.type == 'INVITE' && this.model.accpeted != true;
+  }
+
+  showAccepted() {
+    return this.model.type == 'NOTICE' || (this.model.type == 'INVITE' && this.model.accpeted == true);
   }
 
   denyInvite() {
@@ -32,6 +33,6 @@ export class NotificationComponent implements OnInit {
   }
 
   acceptInvite() {
-
+    this.notificationService.acceptInvite(this.model);
   }
 }

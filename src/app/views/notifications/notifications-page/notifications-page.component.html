@@ -1,12 +1,14 @@
 <div class="container" >
-    <div *ngIf="notifications.length == 0">
-        <p class="not-found-message">Você não possui duplas crias, clique aqui para achar seus parceiros de equipe</p>
+    <div *ngIf="notificaitonsLength == 0">
+        <p class="not-found-message" (click)="goToSearchPage()">
+            Você não possui notificações, clique aqui para achar seus parceiros de equipe
+        </p>
     </div>
 
-    <div 
-        *ngFor="let notification of notifications; let i = index"
-        [ngClass]="{'content': true, 'divider': i != notifications.length -1 }">
-        <app-notification [model]="notification"></app-notification>
-        <!-- <app-message [model]="message" (showPrivateChatEmitter)="showPrivateChat()" (undoDuoEmitter)="undoDuo(message)"></app-message> -->
+    <div fxLayout="column-reverse">
+        <div *ngFor="let notification of notifications$ | async; let i = index"
+            [ngClass]="{'content': true, 'divider': i != 0 }">
+            <app-notification [model]="notification"></app-notification>
+        </div>
     </div>
 </div>

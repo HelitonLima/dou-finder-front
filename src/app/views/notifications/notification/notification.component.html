@@ -1,10 +1,12 @@
 <div class="container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
-  <img [src]="'assets/images/' + model.icon + '.png'" alt="poro-icon" class="icon">
+  <img [src]="model.senderIcon" alt="poro-icon" class="icon">
 
   <div class="texts" fxLayout="row" fxLayoutGap="5px">
-      <span class="name" [innerText]="model.nickname"></span>
+      <span class="name" [innerText]="model.senderNickname"></span>
       <span class="message" [innerText]="model.message"></span>
   </div>
+
+  <span class="accepted" *ngIf="showAccepted()">Dupla aceita! clique aqui e interaja.</span>
 
   <div class="action-buttons" *ngIf="showActionButton()" fxLayout="row" fxLayoutGap="8px">
     <div class="accept-invite" (click)="acceptInvite()">
