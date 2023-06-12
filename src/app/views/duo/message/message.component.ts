@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IMsg } from '../duo-page/duo-page.component';
+import { IDuoUser, IMsg } from '../duo-page/duo-page.component';
 
 @Component({
   selector: 'app-message',
@@ -8,16 +8,10 @@ import { IMsg } from '../duo-page/duo-page.component';
 })
 export class MessageComponent implements OnInit {
 
-  @Input() model: IMsg = {
-    icon: '',
-    id: '',
-    lastMessage: '',
-    nickname: '',
-    unreadMessage: 0
-  };
+  @Input() model!: IDuoUser;
   
   @Output() undoDuoEmitter: EventEmitter<null> = new EventEmitter();
-  @Output() showPrivateChatEmitter: EventEmitter<null> = new EventEmitter();
+  @Output() showPrivateChatEmitter: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
@@ -29,7 +23,7 @@ export class MessageComponent implements OnInit {
   }
 
   showPrivateChat() {
-    this.showPrivateChatEmitter.emit();
+    this.showPrivateChatEmitter.emit(this.model.userId);
   }
 
 }

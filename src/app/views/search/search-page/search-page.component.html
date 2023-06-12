@@ -1,15 +1,15 @@
 <div class="container">
     <div class="filters" fxLayout="row wrap" fxLayoutGap="16px" fxLayoutAlign="start center">
-        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary" >
             <mat-label>NICKNAME</mat-label>
-            <input matInput >
+            <input matInput [(ngModel)]="nickname">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
             <mat-label>FUNÇÕES</mat-label>
             <mat-select multiple [(ngModel)]="selectedRoles">
-                <mat-option *ngFor="let role of playRoles" [value]="role.value">
-                    {{role.value}}
+                <mat-option *ngFor="let role of roles" [value]="role">
+                    {{role}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
@@ -18,7 +18,7 @@
             <mat-label>ELO</mat-label>
             <mat-select multiple [(ngModel)]="selectedElos">
                 <mat-option *ngFor="let elo of elos" [value]="elo.value">
-                    {{elo.value}}
+                    {{elo.desc}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
@@ -26,16 +26,27 @@
         <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
             <mat-label>CAMPEÃO FAVORITO</mat-label>
             <mat-select multiple [(ngModel)]="selectedChamps">
-                <mat-option *ngFor="let champ of champs" [value]="champ.value">
-                    {{champ.value}}
-                </mat-option>
+                <input matInput placeholder="Pesquise aqui..." class="select-search-input" (keyup)="onKey($event.target)">
+                    <div class="options">
+                        <mat-option *ngFor="let champ of championsSelected" [value]="champ">
+                            {{champ}}
+                        </mat-option>
+                    </div>
             </mat-select>
         </mat-form-field>
 
         
-        <button mat-flat-button class="bg-dark-red round-button sidebar-button">
+        <button mat-flat-button class="bg-dark-red round-button sidebar-button" (click)="submit()" [disabled]="!hasFilter()">
             PROCURAR 
             <mat-icon>search</mat-icon>
         </button>
+    </div>
+
+    <div class="users" fxLayout="column" fxLayoutGap="24px">
+        <div *ngFor="let u of users; let i = index" style="width: 100%;">
+            <app-duo-user  [model]="u"></app-duo-user>
+    
+            <div class="divider" style="margin-top: 24px;" *ngIf="i + 1 != users.length"></div>
+        </div>
     </div>
 </div>

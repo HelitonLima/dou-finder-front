@@ -5,11 +5,13 @@ import { SearchRoutingModule } from './search-routing.module';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from 'src/assets/material.module';
+import { DuoUserComponent } from './search-page/duo-user/duo-user.component';
 
 
 @NgModule({
   declarations: [
-    SearchPageComponent
+    SearchPageComponent,
+    DuoUserComponent
   ],
   imports: [
     CommonModule,

@@ -23,23 +23,8 @@ export class ProfilePageComponent implements OnInit {
     '/assets/images/2017_Poro.png',
   ];
   public roles: string[] = [];
-  public playRoles = [
-    {
-      value: 'top'
-    },
-    {
-      value: 'jungle'
-    },
-    {
-      value: 'mid'
-    },
-    {
-      value: 'adc'
-    },
-    {
-      value: 'sup'
-    }
-  ];
+  public champions: string[] = [];
+  public championsSelected: string[] = [];
   public selectedRoles: any = [];
 
   public userForm = new FormGroup({
@@ -59,6 +44,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRoles();
+    this.getChampions();
   }
 
   changeIcon(icon: string) {
@@ -77,6 +63,25 @@ export class ProfilePageComponent implements OnInit {
         this.roles = res.values;
       }
     })
+  }
+
+  getChampions() {
+    this.utilService.getChampions().subscribe({
+      next: res => {
+        this.champions = res;
+        this.championsSelected = res;
+      }
+    })
+  }
+
+  onKey(value: any) { 
+    this.championsSelected = this.search(value.value);
+  }
+    
+  search(value: string) { 
+    let filter = value.toLowerCase();
+
+    return this.champions.filter(option => option.toLowerCase().startsWith(filter));
   }
 
   setUser() {

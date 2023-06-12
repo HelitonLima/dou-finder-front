@@ -1,0 +1,38 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="48px">
+  <div class="tier" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" style="min-width: 280px;">
+    <img 
+        [src]="model.soloqData ? './assets/images/elo/Emblem_' + model.soloqData.tier + '.png' : ''" 
+        alt="" 
+        style="width: 80px;">
+    
+    <div fxLayout="column" fxLayoutGap="10px">
+        <span class="nick">{{model.nickname}}</span>
+
+        <span *ngIf="model.soloqData" class="tier-rank">
+            {{model.soloqData.tier + ' ' + model.soloqData.rank}}
+        </span>
+
+        <span *ngIf="model.soloqData" class="win-lose">
+            <span [innerText]="model.soloqData.wins + ' W'" style="color: #85d985;"></span>
+            /
+            <span [innerText]="model.soloqData.losses + ' L'" style="color: #c75858;"></span>
+        </span>
+
+        <div fxLayout="row wrap" fxLayoutGap="8px">
+            <span class="fc-champ" *ngFor="let c of model.favoritesChamps">
+              {{c}}
+            </span>
+        </div>
+    </div>
+  </div>
+
+  <div class="roles" fxLayout="row" fxLayoutGap="16px">
+    <img *ngFor="let role of model.roles" class="role icon square" [src]="'assets/images/' + role.toLowerCase() + '.png'" alt="" srcset="">
+  </div>
+
+  <div class="invite-duo">
+    <button mat-flat-button class="bg-green round-button sidebar-button" (click)="invite()">
+      CONVIDAR
+    </button>
+  </div>
+</div>

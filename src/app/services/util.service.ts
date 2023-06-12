@@ -19,6 +19,12 @@ export class UtilService {
     return this.http.get<{values: string[]}>(url);
   }
 
+  getChampions() {
+    const url = `${environment.apiUrl}champions`;
+    
+    return this.http.get<string[]>(url);
+  }
+
   generateId() {
     let text = '';
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

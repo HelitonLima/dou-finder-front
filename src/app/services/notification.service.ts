@@ -22,21 +22,26 @@ export class NotificationService {
     private utilService: UtilService
   ) { 
     this.setUser();
-    this.watchNotificationsAlreadyCreated();
     this.watchGetNotifications();
+    this.watchNotificationDeclined();
+    this.watchNotificationsSended();
   }
 
   watchGetNotifications() {
     this.getNotifications$.subscribe(() => {
-      console.log('teste')
-
       this.getNotifications();
     })
   }
 
-  watchNotificationsAlreadyCreated() {
-    this.socket.fromEvent('notification already created').subscribe(() => {
-      this.alertService.warning('Convite já enviado.');
+  watchNotificationDeclined() {
+    this.socket.fromEvent('notification declined').subscribe(() => {
+      this.alertService.warning('Seu convite foi recusado e não pode ser enviado novamente.');
+    })
+  }
+
+  watchNotificationsSended() {
+    this.socket.fromEvent('notification sended').subscribe(() => {
+      this.alertService.success('Convite para dupla enviado com sucesso!');
     })
   }
 
@@ -52,8 +57,6 @@ export class NotificationService {
     }
 
     this.socket.emit('notifications', { notification, user: this.user });
-  
-    this.alertService.success('Convite para dupla enviado com sucesso!');
   }
 
   setUser() {
@@ -66,6 +69,9 @@ export class NotificationService {
   }
 
   getNotifications() {
+    if (this.user.nickname == 'juzt')
+      console.log(this.user.id)
+
     this.socket.emit('get notifications', this.user.id);
   }
 
@@ -82,11 +88,17 @@ export class NotificationService {
       senderId: this.user.id as string,
       senderNickname: this.user.nickname,
       type: 'NOTICE'
-    }
+    };
 
     this.socket.emit('notifications', { notification: notificationAccepted, user: this.user });
     this.socket.emit('accept invite notification', notification.id);
     
-    this.alertService.success('Dupla aceita com sucesso!');
+    this.alertService.success('Dupla feita com sucesso!');
+  }
+
+  denyInvite(idNotification: string) {
+    this.socket.emit('deny invite notification', idNotification);
+    
+    this.alertService.success('Convite para dupla foi recusado.');
   }
 }

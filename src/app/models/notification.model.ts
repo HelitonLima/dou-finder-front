@@ -8,4 +8,5 @@ export interface INotification {
     type: 'INVITE' | 'NOTICE';
     seen?: boolean;
     accpeted?: boolean;
+    declined?: boolean;
 }

@@ -16,7 +16,7 @@
 
             <mat-form-field class="example-full-width" appearance="fill" style="width: 320px;" color="primary">
                 <mat-label>senha</mat-label>
-                <input matInput placeholder="digite sua senha aqui..." type="password" formControlName="password">
+                <input matInput placeholder="digite sua senha aqui..." type="password" formControlName="password" (keyup.enter)="login()">
             </mat-form-field>
         </div>
         

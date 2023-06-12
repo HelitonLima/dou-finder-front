@@ -17,10 +17,15 @@
     text-decoration: underline;
 }
 
+.declined {
+    color: $red;
+}
+
 .message {
     color: #FFF;
 }
 
+.declined,
 .accepted,
 .action-buttons {
     margin-left: auto;

@@ -37,6 +37,8 @@ export class ChatPageComponent implements OnInit {
     }
 
     this.socket.emit('posts', obj);
+
+    this.msg = '';
   }
 
   setUser() {

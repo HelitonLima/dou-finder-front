@@ -1,11 +1,15 @@
 <div class="container" >
-    <div *ngIf="messages.length == 0">
-        <p class="not-found-message">Você não possui duplas crias, clique aqui para achar seus parceiros de equipe</p>
+    <div class="load" fxLayout="row" fxLayoutAlign="center center">
+        <mat-progress-spinner mode="indeterminate" diameter="25" color="primary" *ngIf="isLoading"></mat-progress-spinner>
+    </div>
+
+    <div *ngIf="duos.length == 0 && !isLoading" (click)="goToSearchPage()">
+        <p class="not-found-message">Você não possui duplas criadas, clique aqui para achar seus parceiros de equipe</p>
     </div>
 
     <div 
-    *ngFor="let message of messages; let i = index"
-    [ngClass]="{'content': true, 'divider': i != messages.length -1 }">
-        <app-message [model]="message" (showPrivateChatEmitter)="showPrivateChat()" (undoDuoEmitter)="undoDuo(message)"></app-message>
+    *ngFor="let duo of duos; let i = index"
+    [ngClass]="{'content': true, 'divider': i != duos.length -1 }">
+        <app-message [model]="duo" (showPrivateChatEmitter)="showPrivateChat($event)" (undoDuoEmitter)="undoDuo(duo)"></app-message>
     </div>
 </div>

@@ -6,7 +6,13 @@
       <span class="message" [innerText]="model.message"></span>
   </div>
 
-  <span class="accepted" *ngIf="showAccepted()">Dupla aceita! clique aqui e interaja.</span>
+  <span class="accepted" (click)="showPrivateChat()" *ngIf="showAccepted()">
+    Dupla aceita! clique aqui e interaja.
+  </span>
+
+  <span class="declined" *ngIf="showDeclined()">
+    Convite recusado
+  </span>
 
   <div class="action-buttons" *ngIf="showActionButton()" fxLayout="row" fxLayoutGap="8px">
     <div class="accept-invite" (click)="acceptInvite()">

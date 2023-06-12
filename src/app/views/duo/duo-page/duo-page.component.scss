@@ -9,10 +9,11 @@
 }
 
 .not-found-message {
+    color: $gray;
     text-align: center;
-    font-size: 16px;
-    color: #999;
-    opacity: .6;
     cursor: pointer;
+}
+
+.not-found-message:hover {
     text-decoration: underline;
-} 
+}

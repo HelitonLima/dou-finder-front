@@ -36,6 +36,12 @@ export class AuthService {
     return this.http.put<{user: IUser}>(url, model);
   }
 
+  getUserById(idUser: string) {
+    const url = `${environment.apiUrl}user-by-id?idUser=${idUser}`;
+    
+    return this.http.get<{user: IUser}>(url);
+  }
+
   logout() {
     this.router.navigateByUrl('auth');
   }

@@ -34,8 +34,6 @@ export class SidebarComponent implements OnInit {
 
   watchNotifications() {
     this.notificationsUnseen$.subscribe((res) => {
-      console.log(res)
-
       this.notificaitonsLength = res.length;
     });
   }

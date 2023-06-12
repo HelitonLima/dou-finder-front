@@ -1,29 +1,34 @@
 <div class="container">
     <div class="send-message-container" fxLayout="column" fxLayoutGap="10px">
-        <textarea placeholder="Digite sua mensagem aqui" name="comment" id="" rows="4"></textarea>
+        <textarea placeholder="Digite sua mensagem aqui" name="comment" id="" rows="4" [(ngModel)]="msg" (keyup.enter)="sendMsg()"></textarea>
 
-        <button mat-flat-button class="bg-red round-button sidebar-button" style="align-self: flex-end">
+        <button [disabled]="msg.length === 0" mat-flat-button class="bg-red round-button sidebar-button" style="align-self: flex-end" (click)="sendMsg()">
            ENVIAR
         </button>
     </div>
         
     <div class="divider" style="margin: 20px 0;"></div>
     
-    <div class="messages" id="messages">
-        <div class="message-container" fxLayout="row" fxLayoutGap="20px">
-            <img class="icon" src="/assets/images/2015_Master_Poro.png">
+    <div class="messages" id="messages" *ngIf="userDuo">
+        <div 
+            *ngFor="let msg of messages" 
+            [ngClass]="{'message-container': true, 'my-message': msg.senderIdUser == user.id}"
+            fxLayout="row" 
+            fxLayoutGap="20px">
+            <img class="icon" [src]="msg.senderIdUser == user.id ? user.icon : userDuo.icon">
+
+            <div class="message" fxLayout="column" fxLayoutGap="4px">
+                <span class="nick" *ngIf="msg.senderIdUser == userDuo.id">~ {{userDuo.nickname}}</span>
+                <p>{{msg.message}}</p>
+            </div>
+        </div>
+
+        <!-- <div class="message-container my-message" fxLayout="row" fxLayoutGap="20px">
+            <img class="icon" [src]="user.icon">
 
             <div class="message">
                 <span>Teste</span>
             </div>
-        </div>
-
-        <div class="message-container my-message" fxLayout="row" fxLayoutGap="20px">
-            <img class="icon" src="/assets/images/2015_Master_Poro.png">
-
-            <div class="message">
-                <span>Teste</span>
-            </div>
-        </div>
+        </div> -->
     </div>
 </div>

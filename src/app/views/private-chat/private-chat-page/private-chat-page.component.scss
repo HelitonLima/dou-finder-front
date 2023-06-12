@@ -40,8 +40,19 @@ textarea {
     margin-top: 10px;
     background: $lightDark;
     height: fit-content;
-    padding: 12px;
+    padding: 12px 16px;
     border-radius: 20px;
+    min-width: 180px;
+    font-size: 13px;
+
+    p {
+        margin: 0;
+    }
+
+    .nick {
+        font-weight: 500;
+        font-size: 14px;
+    }
 }
 
 .my-message {

@@ -8,7 +8,7 @@
     <div fxLayout="column-reverse">
         <div *ngFor="let notification of notifications$ | async; let i = index"
             [ngClass]="{'content': true, 'divider': i != 0 }">
-            <app-notification [model]="notification"></app-notification>
+            <app-notification [model]="notification"[user]="user"></app-notification>
         </div>
     </div>
 </div>
