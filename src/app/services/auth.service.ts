@@ -43,7 +43,9 @@ export class AuthService {
   }
 
   logout() {
-    this.router.navigateByUrl('auth');
+    localStorage.removeItem(this.userKey);
+  
+    location.reload();
   }
 
   setUserLocalStorage(user: IUser) {
